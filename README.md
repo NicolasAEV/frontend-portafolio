@@ -1,80 +1,61 @@
-# Portafolio de NicoDev
+# NicoDev's Portfolio
 
-Este es el repositorio del portafolio personal de NicoDev, desarrollado con React y Tailwind CSS. El portafolio incluye secciones como Inicio, Sobre Mí, Proyectos y Contacto, con animaciones y una interfaz moderna y responsiva.
+This is the repository for NicoDev's personal portfolio, developed with React and Tailwind CSS. The portfolio includes sections such as Home, About Me, Projects, and Contact, featuring animations and a modern, responsive interface.
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
 
-## Instalación
+## Installation
 
-Para ejecutar este proyecto localmente, sigue estos pasos:
+To run this project locally, follow these steps:
 
-1. Clona el repositorio:
+1. Clone the repository:
     ```bash
-    git clone https://github.com/tu-usuario/portafolio.git
+    git clone https://github.com/NicolasAEV/portafolio-naev.git
     ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
     ```bash
-    cd portafolio
+    cd portfolio
     ```
 
-3. Instala las dependencias:
+3. Install the dependencies:
     ```bash
     npm install
     ```
 
-4. Inicia el servidor de desarrollo:
+4. Start the development server:
     ```bash
     npm run dev
     ```
 
-El proyecto estará disponible en `http://localhost:3001`.
+The project will be available at `http://localhost:3000`.
 
-## Uso
+## Usage
 
-Puedes navegar por las diferentes secciones del portafolio utilizando la barra de navegación. Las secciones incluyen:
+You can navigate through the different sections of the portfolio using the navigation bar. The sections include:
 
-- **Inicio**: Una breve introducción y bienvenida.
-- **Sobre Mí**: Información sobre tu experiencia y habilidades.
-- **Proyectos**: Una galería de tus proyectos destacados.
-- **Contacto**: Un formulario para que los visitantes puedan enviarte mensajes.
+- **Home**: A brief introduction and welcome message.
+- **About Me**: Information about your experience and skills.
+- **Projects**: A gallery of your featured projects.
+- **Contact**: A form for visitors to send you messages.
 
+## Technologies Used
 
-## Tecnologías Utilizadas
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: CSS framework for rapid and responsive design.
+- **Framer Motion**: Library for animations in React.
+- **React Router**: Library for routing in React.
+- **Vite**: Fast development tool for frontend projects.
 
-- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
-- **Tailwind CSS**: Framework de CSS para un diseño rápido y responsivo.
-- **Framer Motion**: Librería para animaciones en React.
-- **React Router**: Librería para el manejo de rutas en React.
-- **Vite**: Herramienta de desarrollo rápida para proyectos de frontend.
+## Contact
 
-## Contribuciones
+If you have any questions or suggestions, feel free to contact me:
 
-Las contribuciones son bienvenidas. Si deseas contribuir, por favor sigue estos pasos:
+- **LinkedIn**: [linkedin.com/in/nico](https://www.linkedin.com/in/nicolas-alejandro-escobar-villegas/)
 
-1. Haz un fork del proyecto.
-2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
-3. Realiza tus cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`).
-4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
-5. Abre un Pull Request.
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
-
-- **Correo Electrónico**: nico@example.com
-- **LinkedIn**: [linkedin.com/in/nico](https://linkedin.com/in/nico)
-- **Twitter**: [@nico_dev](https://twitter.com/nico_dev)
-
-¡Gracias por visitar mi portafolio!
+Thank you for visiting my portfolio!
