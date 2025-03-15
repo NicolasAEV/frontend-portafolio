@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+  h1 , h2 , h3{
+   @apply text-base md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 hover:text-transparent transition duration-300;
+  }
+}
