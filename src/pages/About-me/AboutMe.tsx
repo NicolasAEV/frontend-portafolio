@@ -60,7 +60,7 @@ const AboutMe = () => {
               architectures and agile methodologies.
             </motion.p>
             <motion.p
-              className="text-base opacity-90 text-gray-400"
+              className="text-base opacity-90 text-gray-400 mb-10"
               initial={{ opacity: 0, y: 50 }}
               animate={controls}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -69,6 +69,18 @@ const AboutMe = () => {
               technological trends and applying best practices in software
               development to create high-quality products.
             </motion.p>
+            {/* Download CV */}
+            <motion.a
+              href="https://drive.google.com/file/d/1bGMVqtiFzVE81XvG7TKMpQ7R7G8Qe927/view?usp=drive_link"
+              target="_blank"
+              // rel="noopener noreferrer"
+              className="bg-purple-600 border-2 text-sm border-purple-600 text-white py-2 px-8 rounded-full font-bold hover:bg-transparent hover:text-purple-500 transition-all duration-300 transform hover:scale-105"
+              initial={{ opacity: 0, y: 50 }}
+              animate={controls}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Download CV
+            </motion.a>
           </div>
 
           {/* Imagen */}
@@ -82,6 +94,7 @@ const AboutMe = () => {
               src={me}
               alt="image of the developer"
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </motion.div>
         </div>
@@ -136,7 +149,7 @@ const AboutMe = () => {
             refProp={sectionRef}
             controls={controls}
             title="Backend"
-            description="Java, Spring Boot, NestJS"
+            description="Java, Spring Boot, NodeJs, NestJS"
             delay={0.2}
             logo={<DiTerminalBadge />}
           />
@@ -144,7 +157,7 @@ const AboutMe = () => {
             refProp={sectionRef}
             controls={controls}
             title="Databases"
-            description="PostgreSQL, Oracle"
+            description="PostgreSQL, Oracle, MongoDB"
             delay={0.3}
             logo={<CiDatabase />}
           />

@@ -8,7 +8,7 @@ const projects = [
     name: "Store with JavaScript",
     image: project1Img,
     technologies: ["JavaScript", "hbs"],
-    url: "https://example.com/project1", 
+    url: "https://example.com/project1",
   },
   {
     name: "Microservices JobSearch Page",
@@ -44,6 +44,7 @@ const Projects = () => {
                 src={project.image}
                 alt={project.name}
                 className="w-full h-52 md:h-96 object-cover rounded-lg mb-4 cursor-pointer"
+                loading="lazy"
               />
             </a>
             <h2 className="text-2xl text-white mb-2">{project.name}</h2>
