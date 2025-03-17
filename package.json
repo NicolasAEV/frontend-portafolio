@@ -2,7 +2,7 @@
   "name": "portafolio",
   "description": "Resume and portfolio from Nicolas Alejandro Escobar Villegas",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

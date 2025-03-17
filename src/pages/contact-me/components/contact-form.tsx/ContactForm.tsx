@@ -1,69 +1,64 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineMail } from "react-icons/ai";
+import { ContactService } from "../../service/contact-service";
+import { ContactFormErrors } from "../../../interface/contact-form-errors.interface";
+import type { ContactForm } from "../../../interface/contact-form.interface";
+
+const contactService = new ContactService();
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactForm>({
     name: "",
     email: "",
     message: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<ContactFormErrors>({
     name: "",
     email: "",
     message: "",
   });
 
   const [isDisabled, setIsDisabled] = useState(true);
-
-  // Expresión regular para validar el email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
 
   useEffect(() => {
-    // Validar campos
-    const isNameValid = formData.name.length > 0 && formData.name.length <= 50;
-    const isEmailValid = emailRegex.test(formData.email);
-    const isMessageValid = formData.message.length > 0 && formData.message.length <= 200;
-
-    setIsDisabled(!(isNameValid && isEmailValid && isMessageValid));
+    const validationErrors = contactService.validateFormData(formData);
+    setIsDisabled(
+      !contactService.isFormValid(validationErrors) ||
+      !formData.name ||
+      !formData.email ||
+      !formData.message 
+    );
+    setErrors(validationErrors);
   }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-
-    // Validaciones
-    switch (name) {
-      case "name":
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          name: value.length > 50 ? "Maximum 50 characters allowed" : "",
-        }));
-        break;
-      case "email":
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          email: emailRegex.test(value) ? "" : "Invalid email format",
-        }));
-        break;
-      case "message":
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          message: value.length > 200 ? "Maximum 200 characters allowed" : "",
-        }));
-        break;
-      default:
-        break;
-    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form data:", formData);
+    setIsSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(null);
+
+    try {
+      await contactService.sendContactForm({ ...formData });
+      setSubmitSuccess("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitError(`Failed to send message: ${error}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -85,7 +80,7 @@ const ContactForm = () => {
       <div>
         <label htmlFor="email" className="block text-white">Email</label>
         <input
-          type="email"
+          type="text"
           name="email"
           id="email"
           value={formData.email}
@@ -112,14 +107,30 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        disabled={isDisabled}
+        disabled={isDisabled || isSubmitting}
         className={`w-full py-2 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 
-          ${isDisabled ? "bg-gray-600 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700 text-white"}
+          ${isDisabled || isSubmitting ? "bg-gray-600 cursor-not-allowed" : "bg-purple-600 hover:bg-purple-700 text-white"}
         `}
       >
-        Send message 
+        {isSubmitting ? "Sending..." : "Send message"}
         <AiOutlineMail className="inline-block" />
       </button>
+
+      {submitError && (
+        <p className="text-red-500 text-sm mt-2" role="alert">
+          {submitError}
+        </p>
+      )}
+      {submitSuccess && (
+        <div
+          className="flex items-center text-green-500 text-sm mt-2"
+          role="alert"
+          aria-live="assertive"
+        >
+          <AiOutlineMail className="mr-2" />
+          <p>{submitSuccess}</p>
+        </div>
+      )}
     </form>
   );
 };

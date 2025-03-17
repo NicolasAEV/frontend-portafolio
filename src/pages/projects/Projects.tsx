@@ -8,7 +8,7 @@ const projects = [
     name: "Store with JavaScript",
     image: project1Img,
     technologies: ["JavaScript", "hbs"],
-    url: "https://example.com/project1",
+    url: "https://nicolasaev.github.io/java-script-store/",
   },
   {
     name: "Microservices JobSearch Page",
@@ -48,7 +48,7 @@ const Projects = () => {
               />
             </a>
             <h2 className="text-2xl text-white mb-2">{project.name}</h2>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
