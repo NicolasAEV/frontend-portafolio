@@ -7,21 +7,23 @@ import Presentation from "./components/presentation/Presentation";
 
 const Home = () => {
   return (
-    <>
-      <div id="home">
+    <main>
+      <section id="home">
         <Presentation />
-      </div>
+      </section>
 
-      <div id="about">
+      <section id="about">
         <AboutMe />
-      </div>
-      <div id="projects">
+      </section>
+
+      <section id="projects">
         <Projects />
-      </div>
-      <div id="contact">
+      </section>
+
+      <section id="contact">
         <ContactMe />
-      </div>
-    </>
+      </section>
+    </main>
   );
 };
 

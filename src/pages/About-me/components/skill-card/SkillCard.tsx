@@ -8,6 +8,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
   description,
   delay,
   logo,
+  technologies,
 }) => {
   return (
     <motion.div
@@ -17,14 +18,34 @@ const SkillCard: React.FC<SkillCardProps> = ({
       animate={controls}
       transition={{ duration: 0.6, delay }}
     >
-      <div className=" grid mb-5">
+      <div className="grid mb-6">
         {logo && (
-          <div className="text-5xl mb-2 text-purple-500 ">{logo && logo}</div>
+          <div className="text-5xl mb-3 text-purple-500">{logo}</div>
         )}
-        <h5 className="text-lg font-semibold mb-5">{title}</h5>
+        <h5 className="text-lg font-semibold">{title}</h5>
       </div>
 
-      <p className="text-base opacity-90 text-gray-400">{description}</p>
+      {description && (
+        <p className="text-base opacity-90 text-gray-400 mb-6">{description}</p>
+      )}
+
+      {technologies && (
+        <div className="flex flex-wrap gap-4">
+          {technologies.map((tech, index) => (
+            <div
+              key={`${tech.name}-${index}`}
+              className="group flex items-center gap-2 text-sm"
+            >
+              <span className="text-2xl text-gray-500 transition-colors duration-300 group-hover:text-purple-500">
+                {tech.icon}
+              </span>
+              <span className="text-gray-300 group-hover:text-purple-500 transition-colors duration-300">
+                {tech.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 };

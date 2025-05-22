@@ -1,6 +1,7 @@
 function Presentation() {
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white px-4 py-10 z-10">
+    <div className="h-screen flex flex-col items-center justify-center text-white px-4 py-10 z-10">
+
       <div className="max-w-5xl mx-auto text-center space-y-8">
         {/* Profession */}
         <p className="inline-block px-4 py-2 mb-6 text-sm font-medium rounded-full bg-purple-500/10 text-purple-500">
@@ -12,9 +13,8 @@ function Presentation() {
         </h1>
 
         {/* Description */}
-        <p className="text-xl md:text-2xl  text-gray-400 opacity-90 mb-6 max-w-2xl mx-auto">
-          Crafting creative and effective solutions through code to address
-          real-world challenges and drive innovation.
+        <p className="text-xl md:text-2xl text-gray-400 opacity-90 mb-6 max-w-2xl mx-auto">
+          Crafting creative and effective solutions through code to address real-world challenges and drive innovation.
         </p>
 
         {/* Buttons */}
@@ -27,7 +27,7 @@ function Presentation() {
           </a>
           <a
             href="#contact"
-            className="bg-transparent border-2 text-sm border-white text-white py-2 px-8 rounded-full font-bold  hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+            className="bg-transparent border-2 text-sm border-white text-white py-2 px-8 rounded-full font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
           >
             Contact Me
           </a>

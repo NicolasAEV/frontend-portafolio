@@ -10,18 +10,19 @@ function App() {
 
   return (
     <Router>
-
-      <Navbar />
-
-      <div className="scroll-smooth">
-        <div className="max-w-5xl mx-auto px-4 z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* Ruta para la página 404 */}
-            <Route path="/404" element={<NotFound />} />
-            {/* Ruta comodín para cualquier otra URL no encontrada */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+      <div >
+        <Navbar />
+    
+        <div className="scroll-smooth flex-grow">
+          <div className="max-w-5xl mx-auto px-4 z-10">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* Ruta para la página 404 */}
+              <Route path="/404" element={<NotFound />} />
+              {/* Ruta comodín para cualquier otra URL no encontrada */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </Router>
