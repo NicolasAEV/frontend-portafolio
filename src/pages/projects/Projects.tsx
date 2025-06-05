@@ -1,22 +1,13 @@
-import Slider from "react-slick";
 import project1Img from "../../assets/img/project-1.png";
 import project2Img from "../../assets/img/project-2.png";
 import project3Img from "../../assets/img/project-3.png";
-
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 const projects = [
   {
     id: 1,
     name: "Store with JavaScript",
     image: project1Img,
-    technologies: ["JavaScript", "hbs"],
+    technologies: ["JavaScript", "html"],
     url: "https://nicolasaev.github.io/java-script-store/",
   },
   {
@@ -35,35 +26,43 @@ const projects = [
   },
 ];
 
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
+  return (
+    <div className="border rounded-lg border-gray-800 shadow-xl hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+      <a href={project.url} target="_blank" rel="noopener noreferrer">
+        <img
+          src={project.image}
+          alt={project.name}
+          className="w-full h-52 object-cover cursor-pointer rounded-t-lg"
+          loading="lazy"
+        />
+      </a>
+      <div className="p-6">
+        <h2 className="text-2xl text-white mb-4">{project.name}</h2>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech, index) => (
+            <span
+              key={`${project.id}-${index}`}
+              className="text-sm text-gray-300 bg-gray-800 py-1 px-3 rounded-full hover:bg-purple-500 hover:text-white transition-colors duration-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Projects = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-16">
       <h1 className="text-base font-semibold text-left mb-8">My projects</h1>
-      <Slider {...sliderSettings}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <div key={project.id} className="text-center">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-52 md:h-96 object-cover rounded-lg mb-4 cursor-pointer"
-                loading="lazy"
-              />
-            </a>
-            <h2 className="text-2xl text-white mb-2">{project.name}</h2>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-              {project.technologies.map((tech, index) => (
-                <span
-                  key={`${project.id}-${index}`}
-                  className="text-sm text-gray-300 bg-gray-700 py-1 px-3 rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+          <ProjectCard key={project.id} project={project} />
         ))}
-      </Slider>
+      </div>
     </div>
   );
 };
