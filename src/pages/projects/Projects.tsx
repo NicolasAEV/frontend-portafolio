@@ -1,6 +1,7 @@
 import project1Img from "../../assets/img/project-1.png";
 import project2Img from "../../assets/img/project-2.png";
 import project3Img from "../../assets/img/project-3.png";
+import project4Img from "../../assets/img/project-4.png";
 
 const projects = [
   {
@@ -23,6 +24,13 @@ const projects = [
     image: project2Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL"],
     url: "https://example.com/project3",
+  },
+    {
+    id: 3,
+    name: "Landing Page with React and Tailwind CSS",
+    image: project4Img,
+    technologies: ["React", "Tailwind CSS", "Nest.js"],
+    url: "https://constructora-escobar.vercel.app/",
   },
 ];
 
