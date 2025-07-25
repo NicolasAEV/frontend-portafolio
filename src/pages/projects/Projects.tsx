@@ -16,7 +16,7 @@ const projects = [
     name: "Landing Page with React and Tailwind CSS",
     image: project4Img,
     technologies: ["React", "Tailwind CSS", "Nest.js"],
-    url: "https://constructora-escobar.vercel.app/",
+    url: "https://www.escobarconstrucciones.cl/",
   },
   {
     id: 3,
