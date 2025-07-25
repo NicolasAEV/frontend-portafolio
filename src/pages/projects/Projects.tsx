@@ -13,10 +13,10 @@ const projects = [
   },
   {
     id: 2,
-    name: "Microservices JobSearch Page",
-    image: project3Img,
-    technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot"],
-    url: "https://example.com/project2",
+    name: "Landing Page with React and Tailwind CSS",
+    image: project4Img,
+    technologies: ["React", "Tailwind CSS", "Nest.js"],
+    url: "https://constructora-escobar.vercel.app/",
   },
   {
     id: 3,
@@ -25,16 +25,16 @@ const projects = [
     technologies: ["Angular", "Nest.Js", "PostgreSQL"],
     url: "https://example.com/project3",
   },
-    {
-    id: 3,
-    name: "Landing Page with React and Tailwind CSS",
-    image: project4Img,
-    technologies: ["React", "Tailwind CSS", "Nest.js"],
-    url: "https://constructora-escobar.vercel.app/",
+  {
+    id: 4,
+    name: "Microservices JobSearch Page",
+    image: project3Img,
+    technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot"],
+    url: "https://example.com/project2",
   },
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
+const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   return (
     <div className="border rounded-lg border-gray-800 shadow-xl hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
       <a href={project.url} target="_blank" rel="noopener noreferrer">
