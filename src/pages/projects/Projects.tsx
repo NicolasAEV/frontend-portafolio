@@ -3,6 +3,8 @@ import project2Img from "../../assets/img/project-2.png";
 import project3Img from "../../assets/img/project-3.png";
 import project4Img from "../../assets/img/project-4.png";
 import project5Img from "../../assets/img/project-5.png";
+import project6Img from "../../assets/img/project-6.png";
+
 
 const projects = [
   {
@@ -26,15 +28,22 @@ const projects = [
     technologies: ["Node Js", "MongoDB"],
     url: "https://github.com/NicolasAEV/hexagonal-architecture-cost-center",
   },
+    {
+    id: 5,
+    name: "Explain event loop project",
+    image: project6Img,
+    technologies: ["Nodejs"],
+    url: "https://github.com/NicolasAEV/event-loop-chat",
+  },
   {
-    id: 4,
+    id: 5,
     name: "Assitent IA Fitness with nest.js",
     image: project2Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL"],
     url: "https://example.com/project3",
   },
   {
-    id: 5,
+    id: 6,
     name: "Microservices JobSearch Page",
     image: project3Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot"],
