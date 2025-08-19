@@ -4,7 +4,7 @@ import project3Img from "../../assets/img/project-3.png";
 import project4Img from "../../assets/img/project-4.png";
 import project5Img from "../../assets/img/project-5.png";
 import project6Img from "../../assets/img/project-6.png";
-
+import project7Img from "../../assets/img/project-7.png";
 
 const projects = [
   {
@@ -21,15 +21,15 @@ const projects = [
     technologies: ["React", "Tailwind CSS", "Nest.js"],
     url: "https://www.escobarconstrucciones.cl/",
   },
-    {
-    id:3,
+  {
+    id: 3,
     name: "Hexagonal Architecture",
     image: project5Img,
     technologies: ["Node Js", "MongoDB"],
     url: "https://github.com/NicolasAEV/hexagonal-architecture-cost-center",
   },
-    {
-    id: 5,
+  {
+    id: 4,
     name: "Explain event loop project",
     image: project6Img,
     technologies: ["Nodejs"],
@@ -37,26 +37,31 @@ const projects = [
   },
   {
     id: 5,
+    name: "Explain SOLID project",
+    image: project7Img,
+    technologies: ["Nest.Js", "MongoDB"],
+    url: "https://github.com/NicolasAEV/solid-project",
+  },
+  {
+    id: 6,
     name: "Assitent IA Fitness with nest.js",
     image: project2Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL"],
     url: "https://example.com/project3",
   },
   {
-    id: 6,
+    id: 7,
     name: "Microservices JobSearch Page",
     image: project3Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot"],
     url: "https://example.com/project2",
   },
-
-
 ];
 
 const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   return (
     <div className="border rounded-lg border-gray-800 shadow-xl hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-      <a href={project.url} target="_blank" rel="noopener noreferrer" >
+      <a href={project.url} target="_blank" rel="noopener noreferrer">
         <img
           src={project.image}
           alt={project.name}
