@@ -44,14 +44,14 @@ const projects = [
   },
   {
     id: 6,
-    name: "Assitent IA Fitness with nest.js",
+    name: "Assitent IA Fitness with nest.js (in progress)",
     image: project2Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL"],
     url: "https://example.com/project3",
   },
   {
     id: 7,
-    name: "Microservices JobSearch Page",
+    name: "Microservices JobSearch Page (first version)",
     image: project3Img,
     technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot", "Gateway"],
     url: "https://github.com/orgs/ArchiJobs/repositories",
