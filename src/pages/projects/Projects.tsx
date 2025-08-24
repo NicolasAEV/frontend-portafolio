@@ -53,8 +53,8 @@ const projects = [
     id: 7,
     name: "Microservices JobSearch Page",
     image: project3Img,
-    technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot"],
-    url: "https://example.com/project2",
+    technologies: ["Angular", "Nest.Js", "PostgreSQL", "Docker", "Spring boot", "Gateway"],
+    url: "https://github.com/orgs/ArchiJobs/repositories",
   },
 ];
 
