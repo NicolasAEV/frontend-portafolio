@@ -5,7 +5,7 @@ export class ContactService {
     formData: ContactFormData
   ): Promise<{ success: boolean; message: string }> {
     try {
-      const url: string = "https://backend-portafolio-lhu2.onrender.com/api/mail/contact";
+      const url: string = "https://backend-portafolio-1092697270964.southamerica-west1.run.app/api/mail/contact";
 
       const response = await fetch(url, {
         method: "POST",
