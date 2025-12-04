@@ -69,8 +69,8 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
           loading="lazy"
         />
       </a>
-      <div className="p-6">
-        <h2 className="text-2xl text-white mb-4">{project.name}</h2>
+      <div className="p-4">
+        <h2 className="text-xl text-white mb-3">{project.name}</h2>
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech, index) => (
             <span
@@ -88,9 +88,9 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
 
 const Projects = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-base font-semibold text-left mb-8">My projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="py-4">
+      <h1 className="text-base font-semibold text-left mb-4">My projects</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

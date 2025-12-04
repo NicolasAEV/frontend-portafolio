@@ -115,8 +115,8 @@ const AboutMe = () => {
   }, [controls, inView]);
 
   return (
-    <section ref={inViewRef} className="text-white py-16 px-4">
-      <div className="max-w-5xl mx-auto text-left space-y-8">
+    <section ref={inViewRef} className="text-white py-4">
+      <div className="text-left space-y-4">
         <SectionTitle refProp={sectionRef} controls={controls}>
           About Me
         </SectionTitle>

@@ -37,8 +37,8 @@ const ContactMe = () => {
   }, [controls, inView]);
 
   return (
-    <section ref={inViewRef} className="text-white py-16 px-4">
-      <div className="max-w-5xl mx-auto text-left space-y-8">
+    <section ref={inViewRef} className="text-white py-4">
+      <div className="text-left space-y-4">
         <motion.h1
           className="text-xl font-semibold mt-4"
           {...fadeInUp}
@@ -55,13 +55,13 @@ const ContactMe = () => {
         </motion.p>
 
         <motion.div
-          className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
+          className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.div
-            className="col-span-1 lg:col-span-3 border border-gray-800 py-12 px-12 rounded-lg bg-gray-900 shadow-xl"
+            className="col-span-1 lg:col-span-3 border border-gray-800 py-6 px-6 rounded-lg bg-gray-900 shadow-xl"
             {...slideIn}
             transition={{ ...slideIn.transition, delay: 0.5 }}
           >
@@ -69,7 +69,7 @@ const ContactMe = () => {
           </motion.div>
 
           <motion.div
-            className="col-span-1 lg:col-span-2 border border-gray-800 py-12 px-12 rounded-lg bg-gray-900 shadow-xl"
+            className="col-span-1 lg:col-span-2 border border-gray-800 py-6 px-6 rounded-lg bg-gray-900 shadow-xl"
             {...slideInRight}
             transition={{ ...slideInRight.transition, delay: 0.7 }}
           >
