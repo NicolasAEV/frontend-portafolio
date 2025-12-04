@@ -152,7 +152,7 @@ const AboutMe = () => {
               development to create high-quality products.
             </motion.p>
             <motion.a
-              href="https://drive.google.com/file/d/1bGMVqtiFzVE81XvG7TKMpQ7R7G8Qe927/view?usp=drive_link"
+              href="https://drive.google.com/file/d/154WoFlmpPzLEuDCqsC1zftbYFFbiyPc9/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-purple-600 border-2 text-sm border-purple-600 text-white py-2 px-8 rounded-full font-bold hover:bg-transparent hover:text-purple-500 transition-all duration-300 transform hover:scale-105"
