@@ -22,6 +22,7 @@ const ContactInfo = () => {
           {/* GitHub */}
           <a
             href="https://github.com/NicolasAEV"
+            target="_blank"
             className="flex gap-3 items-center text-gray-200 bg-transparent py-3 px-6 rounded-lg shadow-md border-2 border-gray-800 hover:text-white hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
           >
             <FaGithub className="text-2xl" />
