@@ -1,18 +1,19 @@
-import { SkillCardProps } from "../../../interface/skill-card.interfaces";
 import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../../../hooks/useScrollAnimation";
+import { SkillCardProps } from "../../../interface/skill-card.interfaces";
 
 const SkillCard: React.FC<SkillCardProps> = ({
-  refProp,
-  controls,
   title,
   description,
   delay,
   logo,
   technologies,
 }) => {
+  const { ref, controls } = useScrollAnimation();
+
   return (
     <motion.div
-      ref={refProp}
+      ref={ref}
       className="border rounded-lg p-10 border-gray-800 shadow-xl hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
@@ -51,3 +52,4 @@ const SkillCard: React.FC<SkillCardProps> = ({
 };
 
 export default SkillCard;
+

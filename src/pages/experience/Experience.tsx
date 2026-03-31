@@ -1,7 +1,6 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { MdWork } from "react-icons/md";
-import { useInView } from "react-intersection-observer";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import SectionTitle from "../About-me/components/section-title/SectionTitle";
 
 const experienceData = [
@@ -43,26 +42,12 @@ const experienceData = [
 ];
 
 const Experience = () => {
-  const controls = useAnimation();
-  const sectionRef = useRef<HTMLHeadingElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: false,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 50 });
-    }
-  }, [controls, inView]);
+  const { ref: inViewRef, controls } = useScrollAnimation();
 
   return (
     <section ref={inViewRef} className="text-white py-4">
       <div className="text-left space-y-2">
-        <SectionTitle refProp={sectionRef} controls={controls}>
-          Experience
-        </SectionTitle>
+        <SectionTitle>Experience</SectionTitle>
 
         <div className="relative mt-1">
           {/* Línea vertical central */}
@@ -72,7 +57,7 @@ const Experience = () => {
           <div className="">
             {experienceData.map((item, index) => (
               <motion.div
-                key={item.company}
+                key={item.company + item.role}
                 className={`relative flex items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } flex-row`}

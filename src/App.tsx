@@ -12,7 +12,6 @@ function App() {
     <Router>
       <div >
         <Navbar />
-    
         <div className="scroll-smooth flex-grow">
           <div className="max-w-5xl mx-auto px-4 z-10">
             <Routes>

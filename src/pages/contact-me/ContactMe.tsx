@@ -1,40 +1,11 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { fadeInUp, slideInLeft, slideInRight } from "../../utils/animations";
 import ContactForm from "./components/contact-form.tsx/ContactForm";
 import ContactInfo from "./components/contact-info.tsx/ContactInfo";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
-const slideIn = {
-  initial: { opacity: 0, x: -100 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6 }
-};
-
-const slideInRight = {
-  initial: { opacity: 0, x: 100 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6 }
-};
-
 const ContactMe = () => {
-  const controls = useAnimation();
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: false,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 50 });
-    }
-  }, [controls, inView]);
+  const { ref: inViewRef } = useScrollAnimation();
 
   return (
     <section ref={inViewRef} className="text-white py-4">
@@ -62,8 +33,8 @@ const ContactMe = () => {
         >
           <motion.div
             className="col-span-1 lg:col-span-3 border border-gray-800 py-6 px-6 rounded-lg bg-gray-900 shadow-xl"
-            {...slideIn}
-            transition={{ ...slideIn.transition, delay: 0.5 }}
+            {...slideInLeft}
+            transition={{ ...slideInLeft.transition, delay: 0.5 }}
           >
             <ContactForm />
           </motion.div>

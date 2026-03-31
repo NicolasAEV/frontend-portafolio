@@ -1,5 +1,4 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { CiDatabase } from "react-icons/ci";
 import {
   DiCode,
@@ -23,16 +22,11 @@ import {
   SiDocker, 
   SiGithubactions 
 } from "react-icons/si";
-import { useInView } from "react-intersection-observer";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import { fadeInUp, scaleIn } from "../../utils/animations";
 import SectionTitle from "./components/section-title/SectionTitle.js";
 import SkillCard from "./components/skill-card/SkillCard.js";
 import me from "../../assets/img/me.png";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
 
 const expertiseData = [
   {
@@ -100,26 +94,13 @@ const skillsData = [
 ];
 
 const AboutMe = () => {
-  const controls = useAnimation();
-  const sectionRef = useRef<HTMLHeadingElement>(null);
-  const { ref: inViewRef, inView } = useInView({
-    triggerOnce: false,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 50 });
-    }
-  }, [controls, inView]);
+  const { ref: inViewRef } = useScrollAnimation();
 
   return (
     <section ref={inViewRef} className="text-white py-4">
       <div className="text-left space-y-4">
-        <SectionTitle refProp={sectionRef} controls={controls}>
-          About Me
-        </SectionTitle>
+        <SectionTitle>About Me</SectionTitle>
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="md:w-3/5 space-y-4">
             <motion.p
@@ -165,9 +146,8 @@ const AboutMe = () => {
 
           <motion.div
             className="md:w-2/5 h-52 md:h-96 rounded-full overflow-hidden flex-shrink-0"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            {...scaleIn}
+            transition={{ ...scaleIn.transition, delay: 0.4 }}
           >
             <img
               src={me}
@@ -178,33 +158,19 @@ const AboutMe = () => {
           </motion.div>
         </div>
 
-        <SectionTitle refProp={sectionRef} controls={controls}>
-          My Expertise
-        </SectionTitle>
+        <SectionTitle>My Expertise</SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6">
           {expertiseData.map((item) => (
-            <SkillCard
-              key={item.title}
-              refProp={sectionRef}
-              controls={controls}
-              {...item}
-            />
+            <SkillCard key={item.title} {...item} />
           ))}
         </div>
 
-        <SectionTitle refProp={sectionRef} controls={controls}>
-          Technologies & Skills
-        </SectionTitle>
+        <SectionTitle>Technologies &amp; Skills</SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
           {skillsData.map((item) => (
-            <SkillCard
-              key={item.title}
-              refProp={sectionRef}
-              controls={controls}
-              {...item}
-            />
+            <SkillCard key={item.title} {...item} />
           ))}
         </div>
       </div>
