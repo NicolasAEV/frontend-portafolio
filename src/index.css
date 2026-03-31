@@ -1,10 +1,158 @@
 @import "tailwindcss";
 
+/* ─── Reset & base ──────────────────────────────────────────── */
 @layer base {
   body {
     @apply bg-gray-900 text-white;
+    min-height: 100vh;
+    overflow-x: hidden;
   }
-  h1 , h2 , h3{
-   @apply text-base md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 hover:text-transparent transition duration-300;
+
+  h1,
+  h2,
+  h3 {
+    @apply text-base md:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-600 hover:text-transparent transition duration-300;
   }
+}
+
+/* ─── Animated background ────────────────────────────────────── */
+
+/* Fixed wrapper — stays behind everything */
+.background-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Dot grid overlay */
+.bg-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  animation: grid-fade 8s ease-in-out infinite alternate;
+}
+
+@keyframes grid-fade {
+  from { opacity: 0.4; }
+  to   { opacity: 0.75; }
+}
+
+/* Mobile: grid muy sutil */
+@media (max-width: 767px) {
+  .bg-dot-grid {
+    animation: none;
+    opacity: 0.25;
+  }
+}
+
+/* Shared orb base */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0;
+  animation: orb-float linear infinite;
+}
+
+/* Orb 1 — large purple, top-left */
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
+  animation-duration: 18s;
+  animation-delay: 0s;
+}
+
+/* Orb 2 — medium pink, bottom-right */
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.25) 0%, transparent 70%);
+  animation-duration: 22s;
+  animation-delay: -6s;
+}
+
+/* Orb 3 — small indigo, center */
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  top: 45%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  animation-duration: 26s;
+  animation-delay: -12s;
+}
+
+/* ── Mobile: orbes más contenidos ───────────────────────── */
+@media (max-width: 767px) {
+  .orb {
+    filter: blur(70px);
+  }
+
+  .orb-1 {
+    width: 340px;
+    height: 340px;
+    top: -120px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, transparent 70%);
+  }
+
+  .orb-2 {
+    width: 280px;
+    height: 280px;
+    bottom: -90px;
+    right: -90px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, transparent 70%);
+  }
+
+  .orb-3 {
+    display: none;
+  }
+}
+
+@keyframes orb-float {
+  0%   { opacity: 0;    transform: translate(0px,   0px)   scale(1);    }
+  10%  { opacity: 1; }
+  50%  { opacity: 0.85; transform: translate(30px, -40px)  scale(1.08); }
+  90%  { opacity: 1; }
+  100% { opacity: 0;    transform: translate(0px,   0px)   scale(1);    }
+}
+
+/* Edge vignette — darkens the corners for depth */
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(17, 24, 39, 0.75) 100%
+  );
+}
+
+/* Mobile: viñeta igual al desktop — sin borde oscuro visible */
+@media (max-width: 767px) {
+  .bg-vignette {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(17, 24, 39, 0.6) 100%
+    );
+  }
+}
+
+/* ─── Ensure page content sits above the background ─────────── */
+#root {
+  position: relative;
+  z-index: 1;
 }

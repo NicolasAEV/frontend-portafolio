@@ -2,15 +2,16 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./App.css";
+import Background from "./components/background/Background.tsx";
 import Navbar from "./components/navbar/Navbar.tsx";
 import Home from "./pages/Home/Home.tsx";
 import NotFound from "./pages/not-found/NotFound.tsx";
 
 function App() {
-
   return (
     <Router>
-      <div >
+      <div>
+        <Background />
         <Navbar />
         <div className="scroll-smooth flex-grow">
           <div className="max-w-5xl mx-auto px-4 z-10">
@@ -29,3 +30,4 @@ function App() {
 }
 
 export default App;
+
