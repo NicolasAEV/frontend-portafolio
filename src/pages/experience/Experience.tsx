@@ -44,7 +44,7 @@ const experienceData = [
 /* ── Card compartida ─────────────────────────────────────── */
 const ExperienceCard = ({ item }: { item: (typeof experienceData)[0] }) => (
   <motion.div
-    className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-4 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+    className="bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-xl p-4 hover:border-purple-500/50 transition-all duration-300 hover:shadow-purple-500/20 hover:shadow-xl"
     whileHover={{ y: -4, scale: 1.02 }}
   >
     <div className="flex items-start gap-3">

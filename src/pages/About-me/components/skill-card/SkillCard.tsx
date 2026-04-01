@@ -14,7 +14,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
   return (
     <motion.div
       ref={ref}
-      className="border rounded-lg p-10 border-gray-800 shadow-xl hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+      className="border rounded-lg p-10 border-gray-800 shadow-xl hover:shadow-purple-500/20 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] bg-gray-900/60 backdrop-blur-sm"
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
       transition={{ duration: 0.6, delay }}
